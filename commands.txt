@@ -72,6 +72,30 @@ git checkout feature/pow-sqrt
 git branch
 git branch -a
 
+Committing power and sqrt:
+git status
+git add .
+git status
+git commit -m "Added power and square root functions with test cases"
+git status
+
+Quality Checks:
+pytest tests/ -v
+pytest tests/ --cov=src
+pytest tests/ --cov=src --cov-report=html
+pylint src/
+pylint src/ --output-format=text > lint_report.txt
+pylint src/ --output-format=colorized
+# pylint --generate-rcfile > .pylintrc
+black src/ tests/ --check
+black src/ tests/ --diff
+black src/ tests/
+bandit -r src/
+bandit -r src/ -v
+bandit -r src/ -f json -o security_report.json
+git push origin feature/pow-sqrt
+git status
+
 Updating the branch and pushing to GitHub:
 git status 
 
@@ -110,3 +134,9 @@ black src/ tests/
 bandit -r src/
 bandit -r src/ -v
 bandit -r src/ -f json -o security_report.json
+
+Cleanup after PR merge:
+git checkout main
+git branch -D feature/pow-sqrt
+git push origin --delete feature/pow-sqrt
+git pull origin main
