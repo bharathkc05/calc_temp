@@ -1,5 +1,8 @@
 git clone https://github.com/v-s-v-i-s-h-w-a-s/my-calci.git
 
+Running Tests:
+pytest tests/unit/ -v
+
 Adding and Committing Changes in Git:
 git status
 git add tests/unit/test_calculator.py
