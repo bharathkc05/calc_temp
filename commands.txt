@@ -135,7 +135,30 @@ bandit -r src/
 bandit -r src/ -v
 bandit -r src/ -f json -o security_report.json
 
-Cleanup after PR merge:
+CLI App Implementation:
+git branch -a
+git branch
+git checkout -b feature/cli-app
+git branch -a
+git branch
+
+CLI Testing:
+python src/cli.py add 3 5
+python src/cli.py add -- 3 -5
+python src/cli.py add -- -3 -5
+python src/cli.py subtract -- -3 -5
+python src/cli.py subtract -- -3 5
+python src/cli.py subtract -- 3 5
+python src/cli.py subtract 3 5
+python src/cli.py addition 3 5
+
+CLI Commit:
+git add .
+git commit -m "- Created the cli.py and made test case file - Ran the cli.py to see the working of the code"
+
+CLI Quality Checks:
+pytest tests/ -v
+pytest tests/ --cov=src --cov-report=html
 git checkout main
 git branch -D feature/pow-sqrt
 git push origin --delete feature/pow-sqrt
