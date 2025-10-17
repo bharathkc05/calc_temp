@@ -54,7 +54,7 @@ git checkout main
 
 git branch
 
-git merge feature/mutli-div
+git merge feature/multi-div
 
 Update GitHub repo after merge:
 git push origin 
