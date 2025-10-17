@@ -5,10 +5,12 @@ Example: python src/cli.py add 5 3
 
 import sys
 import click
+# pylint: disable=import-error,unused-import
 from calculator import add, subtract, multiply, divide, power, square_root
 
 
 @click.command()
+# pylint: disable=no-value-for-parameter
 @click.argument("operation")
 @click.argument("num1", type=float)
 @click.argument("num2", type=float, required=False)
@@ -48,6 +50,7 @@ def calculate(operation, num1, num2=None):
     except ValueError as e:
         click.echo(f"Error: {e}")
         sys.exit(1)
+    # pylint: disable=broad-exception-caught
     except Exception as e:
         click.echo(f"Unexpected error: {e}")
         sys.exit(1)
